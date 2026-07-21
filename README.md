@@ -156,6 +156,17 @@ resultado](./evidencias/cancelar_id_inexistente_exitoso.png)
 
 ![Consultar Tutoría](./evidencias/consultar_tutoria_filtro.png)
 
+## Update: Examen [Número 1]
+
+Para este examen tocaba agregar una alerta cuando a un tutor ya casi no le quedan horarios libres, porque como estaba el sistema antes, la coordinación no se daba cuenta de que un tutor se había quedado sin disponibilidad hasta que un estudiante trataba de agendar y no encontraba nada.
+
+Se realizó la lógica justo después del nodo Cerrar Disponibilidad, que es donde el bot ya marca la franja del tutor como ocupada apenas se confirma una asesoría. Ahí se agregó:
+
+- Un nodo que consulta en la hoja Disponibilidad todas las franjas de ese mismo tutor
+- Un código que cuenta cuántas de esas franjas siguen en Libre
+- Un IF que revisa si esa cantidad es 1 o menos
+- Si se cumple, se arma el mensaje de alerta y se manda directo al canal de la coordinación en Discord con el formato que pedía el enunciado
+
 ## ✅ Resultado esperado
 
 -   Reducción del tiempo de asignación.
